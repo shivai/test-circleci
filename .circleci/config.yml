@@ -8,7 +8,7 @@ jobs:
       PIPEID:  << pipeline.id >>
       PIPENO: << pipeline.number >>
       GIT: << pipeline.project.git_url >>
-      PROJTYPE: << pipeline.project.type >>
+#      PROJTYPE: << pipeline.project.type >>
     docker:
       - image: cimg/base:stable
     steps:
@@ -19,7 +19,7 @@ jobs:
             echo $PIPEID
             echo $PIPENO
             echo $GIT
-            echo $PROJTYPE
+ #           echo $PROJTYPE
             echo Hello, Shivaaaaa!
             echo $SHIVA
             pwd
