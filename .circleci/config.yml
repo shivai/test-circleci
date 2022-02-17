@@ -15,6 +15,7 @@ jobs:
       - run:
           name: "Say hello"
           command: |
+            echo $SHIVA_ENV
             echo $PIPEID
             echo $PIPENO
             echo $GIT
