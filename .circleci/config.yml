@@ -13,7 +13,6 @@ jobs:
             echo Hello, Shivaaaaa!
             echo $SHIVA
             pwd
-            apk add apache2
             ls /etc/
 
 
