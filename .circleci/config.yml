@@ -9,7 +9,6 @@ jobs:
       PIPENO: << pipeline.number >>
       GIT: << pipeline.project.git_url >>
       PROJTYPE: << pipeline.project.type >>
-      GITBRANCH: << pipeline.git.branch >>
     docker:
       - image: cimg/base:stable
     steps:
