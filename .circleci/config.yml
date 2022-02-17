@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  welcome: cicleci/welcome-orb@0.4.1
+  welcome: cirleci/welcome-orb@0.4.1
 jobs:
   say-hello:
     environment:
