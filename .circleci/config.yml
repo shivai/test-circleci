@@ -19,8 +19,6 @@ jobs:
           command: |
             echo $PIPEID
             echo $PIPENO
-            echo $GIT
-
             echo Hello, Shivaaaaa!
             echo $SHIVA
             pwd
