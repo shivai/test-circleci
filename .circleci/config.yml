@@ -13,11 +13,28 @@ jobs:
             echo Hello, Shivaaaaa!
             echo $SHIVA
             pwd
-            ls /etc/
-
+            ls -lha
+  print_hello:
+    docker:
+      - image: alpine:latest
+    steps:
+      - checkout
+      - run:
+          name: "print hello"
+          command: "echo just HELLO!"
+  print_world:
+    docker:
+      - image: alpine:latest
+    steps:
+      - checkout
+      - run:
+          name: "print world"
+          command: "echo just WORLD!"
 
 workflows:
   say-hello-workflow:
     jobs:
       - say-hello
-
+      - print_hello
+      - print_world:
+        requires: [print_hello]
