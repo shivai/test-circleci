@@ -18,6 +18,8 @@ jobs:
           command: |
             echo $PIPEID
             echo $PIPENO
+            echo $GIT
+            echo $PROJTYPE
             echo Hello, Shivaaaaa!
             echo $SHIVA
             pwd
