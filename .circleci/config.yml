@@ -55,9 +55,7 @@ jobs:
           name: "print output"
           command: |
             cat /tmp/my_id.txt
-  using_command:
-    docker:
-      - image:
+
 
 workflows:
   say-hello-workflow:
