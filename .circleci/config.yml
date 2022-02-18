@@ -23,6 +23,29 @@ jobs:
             echo $SHIVA
             pwd
             ls -lha
+  save_output:
+    docker:
+      - image: alpine:latest
+    steps:
+      - checkout
+      - run:
+        name: "save pipeline id to file"
+        command: "echo << pipeline.id >> > my_id.txt"
+      - persist_to_workspace:
+          root: /tmp/dir
+          paths:
+            - my_id.txt
+
+  print_output:
+    docker:
+      - image: alpine:latest
+    steps:
+      - checkout
+      - attach_workspace:
+        at: /tmp/dir
+      - run:
+        name: "Print output"
+        command: "cat my_id"
   print_hello:
     docker:
       - image: alpine:latest
