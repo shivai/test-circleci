@@ -3,11 +3,11 @@ orbs:
   welcome: circleci/welcome-orb@0.4.1
 commands:
   print_pipeline_id:
-    description: "test"
+    parameters:
+      id:
+        type: string
     steps:
-      - run:
-          name: "test"
-          command: "echo $CIRCLE_WORKFLOW_ID"
+      - run: echo << parameters.id >>
 defaults: &defaults
   docker:
     - image: alpine:latest
@@ -56,7 +56,8 @@ jobs:
   using_command:
     <<: *defaults
     steps:
-      - print_pipeline_id
+      - print_pipeline_id:
+          id: << pipeline.id >> 
 
 workflows:
   say-hello-workflow:
