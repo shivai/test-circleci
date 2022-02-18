@@ -29,12 +29,12 @@ jobs:
     steps:
       - checkout
       - run:
-        name: "save pipeline id to file"
-        command: "echo << pipeline.id >> > my_id.txt"
+          name: "save pipeline id to file"
+          command: "echo << pipeline.id >> > my_id.txt"
       - persist_to_workspace:
-        root: /tmp/dir
-        paths:
-          - my_id.txt
+          root: /tmp/dir
+          paths:
+            - my_id.txt
 
   print_hello:
     docker:
