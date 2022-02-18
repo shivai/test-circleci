@@ -72,3 +72,4 @@ workflows:
       - print_output:
           requires: [save_output]
       - using_command
+      - test_fail
