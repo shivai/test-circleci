@@ -55,7 +55,10 @@ jobs:
           name: "print output"
           command: |
             cat /tmp/my_id.txt
-
+  using_command:
+    <<: defaults
+    steps:
+      - print_pipeline_id
 
 workflows:
   say-hello-workflow:
@@ -63,4 +66,4 @@ workflows:
       - save_output
       - print_output:
           requires: [save_output]
-
+      - using_command
