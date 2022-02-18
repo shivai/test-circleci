@@ -20,19 +20,19 @@ jobs:
       GIT: << pipeline.project.git_url >>
     build:
       <<: *defaults
-    steps:
-      - checkout
-      - run:
-          name: "Say hello"
-          command: |
-            echo $SHIVA_ENV
-            echo $PIPEID
-            echo $PIPENO
-            echo $GIT
-            echo Hello, Shivaaaaa!
-            echo $SHIVA
-            pwd
-            ls -lha
+      steps:
+        - checkout
+        - run:
+            name: "Say hello"
+            command: |
+              echo $SHIVA_ENV
+              echo $PIPEID
+              echo $PIPENO
+              echo $GIT
+              echo Hello, Shivaaaaa!
+              echo $SHIVA
+              pwd
+              ls -lha
   save_output:
     docker:
       - image: alpine:latest
