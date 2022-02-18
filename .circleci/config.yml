@@ -58,7 +58,12 @@ jobs:
     steps:
       - print_pipeline_id:
           id: << pipeline.id >> 
-
+  test_fail:
+    <<: *defaults
+    steps:
+      - run: return 1
+      - run: echo FAILED!
+        when: on_failure
 workflows:
   say-hello-workflow:
     jobs:
