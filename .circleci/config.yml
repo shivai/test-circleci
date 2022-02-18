@@ -1,6 +1,16 @@
 version: 2.1
 orbs:
   welcome: circleci/welcome-orb@0.4.1
+commands:
+  print_pipeline_id:
+    description: "test"
+    steps:
+      - run:
+          name: "test"
+          command: "echo $CIRCLE_WORKFLOW_ID"
+defaults: &defaults
+  docker:
+    - image: alpine:latest
 jobs:
   say-hello:
     environment:
@@ -8,8 +18,8 @@ jobs:
       PIPEID:  << pipeline.id >>
       PIPENO: << pipeline.number >>
       GIT: << pipeline.project.git_url >>
-    docker:
-      - image: cimg/base:stable
+    build:
+      <<: *defaults
     steps:
       - checkout
       - run:
@@ -46,22 +56,9 @@ jobs:
           name: "print output"
           command: |
             cat /tmp/my_id.txt
-  print_hello:
+  using_command:
     docker:
-      - image: alpine:latest
-    steps:
-      - checkout
-      - run:
-          name: "print hello"
-          command: "echo just HELLO!"
-  print_world:
-    docker:
-      - image: alpine:latest
-    steps:
-      - checkout
-      - run:
-          name: "print world"
-          command: "echo just WORLD!"
+      - image:
 
 workflows:
   say-hello-workflow:
