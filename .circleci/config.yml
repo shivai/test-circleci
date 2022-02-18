@@ -44,7 +44,8 @@ jobs:
           at: /tmp/
       - run:
           name: "print output"
-          command: "cat my_id.txt"
+          command: |
+            pwd
   print_hello:
     docker:
       - image: alpine:latest
