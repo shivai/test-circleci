@@ -35,7 +35,16 @@ jobs:
           root: /tmp/dir
           paths:
             - my_id.txt
-
+  print_output:
+    docker:
+      - image: alpine:latest
+    steps:
+      - checkout
+      - attach_workspace:
+          at: /tmp/dir
+      - run:
+          name: "print output"
+          command: "cat my_id.txt"
   print_hello:
     docker:
       - image: alpine:latest
