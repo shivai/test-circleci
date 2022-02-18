@@ -62,8 +62,9 @@ jobs:
     <<: *defaults
     steps:
       - run: return 1
-      - run: echo FAILED!
-        when: on_failure
+      - run: 
+          command: echo FAILED!
+          when: on_fail
 workflows:
   say-hello-workflow:
     jobs:
