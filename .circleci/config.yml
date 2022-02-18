@@ -61,7 +61,7 @@ jobs:
   test_fail:
     <<: *defaults
     steps:
-      - run: return 1
+      - run: return 0
       - run: 
           command: echo FAILED!
           when: on_fail
