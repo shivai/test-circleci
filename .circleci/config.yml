@@ -65,7 +65,8 @@ jobs:
 workflows:
   say-hello-workflow:
     jobs:
-      - say-hello
+      - save_output
+      - print_output
       - print_hello
       - print_world:
           requires: [print_hello]
