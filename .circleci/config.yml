@@ -33,8 +33,7 @@ jobs:
             pwd
             ls -lha
   save_output:
-    docker:
-      - image: alpine:latest
+    <<: *defaults
     steps:
       - checkout
       - run:
@@ -45,8 +44,7 @@ jobs:
           paths:
             - my_id.txt
   print_output:
-    docker:
-      - image: alpine:latest
+    <<: *defaults
     steps:
       - checkout
       - attach_workspace:
@@ -56,7 +54,7 @@ jobs:
           command: |
             cat /tmp/my_id.txt
   using_command:
-    <<: defaults
+    <<: *defaults
     steps:
       - print_pipeline_id
 
