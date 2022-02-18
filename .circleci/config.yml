@@ -69,7 +69,7 @@ workflows:
     jobs:
       - save_output
       - print_output:
-          requires: [save_ouput]
+          requires: [save_output]
       - print_hello
       - print_world:
           requires: [print_hello]
