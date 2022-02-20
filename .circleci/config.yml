@@ -65,11 +65,15 @@ jobs:
       - run: 
           command: echo FAILED!
           when: on_fail
+  myjob1:
+    docker:
+      - image: alpine:latest
+    steps:
+      - checkout
+      - run: echo "step1"
+
 workflows:
-  say-hello-workflow:
+  workflows:
     jobs:
-      - save_output
-      - print_output:
-          requires: [save_output]
-      - using_command
-      - test_fail
+      - myjob1
+      - create_infrastructure
