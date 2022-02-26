@@ -137,7 +137,7 @@ jobs:
       - image: amazon/aws-cli
     steps:
       - checkout
-        - run:
+      - run:
           name: Execute cloudfront.yml
           command: |
             aws cloudformation deploy \
