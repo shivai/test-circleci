@@ -126,4 +126,4 @@ jobs:
 workflows:
   workflows:
     jobs:
-      - create_infrastructure_aws
+      - create_and_deploy_front_end
