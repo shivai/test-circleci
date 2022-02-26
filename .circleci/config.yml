@@ -92,8 +92,7 @@ jobs:
               --region us-east-1
       - run:
           command: return 1
-      - destroy_env:
-        when: on_fail
+
 
   configuration_infra:
     docker:
