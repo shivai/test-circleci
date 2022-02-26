@@ -168,6 +168,7 @@ workflows:
       - get_last_deployment_id:
           requires:
             - create_and_deploy_front_end
+            - promote_to_production
       - clean_up_old_front_end:
           requires:
             - get_last_deployment_id
