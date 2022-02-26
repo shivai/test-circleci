@@ -125,9 +125,7 @@ jobs:
       - run:
           name: Fetch and save the old pipeline ID (bucket name) responsible for the last release.
           command: |
-            aws cloudformation \
-            list-exports --query "Exports[?Name==\`PipelineID\`].Value" \
-            --no-paginate --output text > ~/textfile.txt
+            aws cloudformation list-exports --query "Exports[?Name==\`PipelineID\`].Value" --no-paginate --output text > ~/textfile.txt
       - persist_to_workspace:
           root: ~/
           paths: 
@@ -157,6 +155,8 @@ jobs:
           # Use $OldBucketID environment variable or mybucket644752792305 below.
           # Similarly, you can create and use $OldStackID environment variable in place of production-distro 
           command: |
+            pwd
+            ls -lh
             cat ~/textfile.txt
             export OldBucketID=$(cat ~/textfile.txt)
             aws s3 rm "s3://${OldBucketID}" --recursive
